@@ -1,0 +1,15 @@
+version: "2"
+services:
+  overworld:
+    image: karethio/dstserver:debug
+    container_name: overworld
+    command: dst_tool.sh
+    hostname: overworld
+    tty: true
+    stdin_open: true
+    env_file: 
+        - conf.env
+    ports:
+      - "11000:11000/udp"
+    volumes:
+      - ./dst_data:/root/dst/saves
