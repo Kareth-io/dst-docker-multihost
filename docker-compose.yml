@@ -15,3 +15,4 @@ services:
       - "10889:10889/tcp"
     volumes:
       - ./dst_data:/root/dst/saves
+      - ./dst_mods:/root/dst/mods
