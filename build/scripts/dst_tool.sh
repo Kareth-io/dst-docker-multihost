@@ -62,12 +62,13 @@ copy_vanilla_leveldata () {
     cp -v /scripts/skel/leveldataoverride_${SHARD}.lua ${SERVER_DIR}/leveldataoverride.lua
 }
 setup_mods () {
+    echo 'return {' >> ${SERVER_DIR}/modoverrides.lua
     for mod in $MODS; do
         echo "ServerModSetup(\"$mod\")" >> /root/dst/mods/dedicated_server_mods_setup.lua
-	echo 'return {' >> ${SERVER_DIR}/modoverrides.lua
 	echo "['workshop-$mod'] = { enabled = true }," >> ${SERVER_DIR}/modoverrides.lua
-	echo "}" >> ${SERVER_DIR}/modoverrides.lua
     done
+    echo "}" >> ${SERVER_DIR}/modoverrides.lua
+
 }
 
 verify_full_config () {
