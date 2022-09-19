@@ -61,6 +61,15 @@ adjust_server_configs () {
 copy_vanilla_leveldata () {
     cp -v /scripts/skel/leveldataoverride_${SHARD}.lua ${SERVER_DIR}/leveldataoverride.lua
 }
+setup_mods () {
+    for mod in $MODS; do
+        echo "ServerModSetup(\"$mod\")" >> /root/dst/mods/dedicated_server_mods_setup.lua
+	echo 'return {' >> /root/dst/mods/modsettings.lua
+	echo "['workshop-$mod'] = { enabled = true }," >> /root/dst/mods/modsettings.lua
+	echo "}" >> /root/dst/mods/modsettings.lua
+    done
+}
+
 verify_full_config () {
     if [ ! -f /root/dst/first_time_config ]; then
         mkdir -vp ${SERVER_DIR}
@@ -68,6 +77,7 @@ verify_full_config () {
         check_for_missing_files
         adjust_server_configs
         copy_vanilla_leveldata
+	setup_mods
         touch /root/dst/first_time_config
     fi
 }
