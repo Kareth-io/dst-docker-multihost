@@ -11,5 +11,7 @@ services:
         - conf.env
     ports:
       - "11000:11000/udp"
+      - "10889:10889/udp"
+      - "10889:10889/tcp"
     volumes:
       - ./dst_data:/root/dst/saves
