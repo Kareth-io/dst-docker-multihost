@@ -1,5 +1,6 @@
 #!/bin/bash
 BIN=/root/dst/bin/dontstarve_dedicated_server_nullrenderer
+SERVER_DIR=${CLUSTER_DIR}/${SHARD}
 
 #This script expects a multi server configuration, meaning that it will only boot up a overworld or cave instance, not both. It will not work with multiworld either.
 

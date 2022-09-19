@@ -11,7 +11,6 @@ ENV PERSISTENT_STORAGE_ROOT /root/dst/saves
 ENV CONF_DIR dstserver
 ENV SHARD Master
 ENV CLUSTER_DIR ${PERSISTENT_STORAGE_ROOT}/${CONF_DIR}/Cluster_1
-ENV SERVER_DIR ${CLUSTER_DIR}/${SHARD}
 
 RUN apt-get update -yqq
 RUN apt-get -yqq install libcurl4-gnutls-dev:i386 gettext-base
