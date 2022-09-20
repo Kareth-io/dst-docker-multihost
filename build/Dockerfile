@@ -13,7 +13,8 @@ ENV SHARD Master
 ENV CLUSTER_DIR ${PERSISTENT_STORAGE_ROOT}/${CONF_DIR}/Cluster_1
 
 RUN apt-get update -yqq
-RUN apt-get -yqq install libcurl4-gnutls-dev:i386 gettext-base
+RUN apt-get -yqq install libcurl4-gnutls-dev:i386 gettext-base python3-pip
+RUN pip3 install requests
 
 #Install DST
 RUN /scripts/app.sh
