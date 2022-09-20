@@ -41,8 +41,9 @@ def setup_installation_file(collections, mods):
             fd.write(f"ServerModSetup(\"{mod}\")\n")
 
 def setup_world_overrides(mods):
-    server_dir=os.getenv("SERVER_DIR")
-    file_path=server_dir + "/modoverrides.lua"
+    server_dir=os.getenv("CLUSTER_DIR")
+    shard=os.getenv("SHARD")
+    file_path=server_dir + f"{shard}/modoverrides.lua"
     with open(file_path, 'a') as fd:
         fd.write("return {\n")
         for mod in mods:
