@@ -66,14 +66,14 @@ setup_mods () {
 }
 
 verify_full_config () {
-    if [ ! -f /root/dst/first_time_config ]; then
+    if [ ! -f /root/dst/saves/first_time_config ]; then
         mkdir -vp ${SERVER_DIR}
         verify_cluster_token
         check_for_missing_files
         adjust_server_configs
         copy_vanilla_leveldata
-	setup_mods
-        touch /root/dst/first_time_config
+	    setup_mods
+        touch /root/dst/saves/first_time_config
     fi
 }
 
